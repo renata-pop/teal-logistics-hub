@@ -5,17 +5,14 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: teal-logistics-hub,
-  // ... other config
-});
+  base: "/",
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    process.env.NODE_ENV === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-}));
+});
